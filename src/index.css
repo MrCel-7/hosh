@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "LeagueSpartan";
+  src: url("/fonts/LeagueSpartan.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "garet";
+  src: url("/fonts/Garet-Book.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.league {
+  font-family: "LeagueSpartan";
+}
+
+.garet {
+  font-family: "garet";
+}
