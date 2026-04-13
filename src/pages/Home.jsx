@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const words = ["Frontend Developer", "Backend Developer", "Web Designer"];
@@ -18,7 +18,7 @@ export default function Home() {
       {/* Head */}
       <div className="w-full flex justify-center h-fit gap-2 px-10 my-5">
         <h1 className="text-xl garet font-bold">
-          <span className="text-gray-400">dya</span>cel•
+          <span className="text-gray-400">marcel</span>wang•
         </h1>
       </div>
 
