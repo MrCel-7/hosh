@@ -1,9 +1,15 @@
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import Counter from "./pages/Counter";
+import Home from "./pages/Home";
+
 export default function App() {
   return (
-    <div className="w-full h-screen flex">
-      <h1 className="text-xl garet font-bold">
-        <span className="text-gray-400">stand</span>rom
-      </h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/project/counter" element={<Counter />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
