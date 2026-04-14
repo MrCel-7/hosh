@@ -33,18 +33,18 @@ export default function Home() {
 
         <div className="h-full w-full garet flex flex-col items-center justify-center">
           <div className="flex flex-col text-center">
-            <h1 className="text-5xl text-gray-500">WE WORK AS</h1>
-            <div className="overflow-hidden h-[60px]">
+            <h1 className="text-4xl text-gray-500">WE WORK AS</h1>
+            <div className="overflow-hidden h-[120px]">
               <ul
                 className="transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 style={{
-                  transform: `translateY(-${index * 60}px)`,
+                  transform: `translateY(-${index * 120}px)`,
                 }}
               >
                 {words.map((word, i) => (
                   <li
                     key={i}
-                    className="h-[60px] flex items-center justify-center text-4xl font-bold"
+                    className="h-[120px] flex items-center justify-center text-8xl font-bold"
                   >
                     {word}
                   </li>
