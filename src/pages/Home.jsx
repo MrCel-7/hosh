@@ -101,19 +101,17 @@ export default function Home() {
           <h1 className="text-6xl font-extrabold">MY WORKS</h1>
         </div>
         <div className="w-full h-full flex flex-col bg-white rounded-2xl mt-20 gap-10 p-10">
-          <div className="flex gap-10">
-            <div className="w-full h-90 bg-gray-200 rounded-xl"></div>
-            <div className="w-full h-90 bg-gray-200 rounded-xl"></div>
-            <div className="w-full h-90 bg-gray-200 rounded-xl"></div>
-            <div className="w-full h-90 bg-gray-200 rounded-xl"></div>
-            <div className="w-full h-90 bg-gray-200 rounded-xl"></div>
+          <div className="flex justify-around">
+            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
+            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
+            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
+            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
           </div>
           <div className="flex justify-around">
-            <div className="w-full h-90 bg-gray-200 rounded-xl"></div>
-            <div className="w-full h-90 bg-gray-200 rounded-xl"></div>
-            <div className="w-full h-90 bg-gray-200 rounded-xl"></div>
-            <div className="w-full h-90 bg-gray-200 rounded-xl"></div>
-            <div className="w-full h-90 bg-gray-200 rounded-xl"></div>
+            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
+            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
+            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
+            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
           </div>
         </div>
       </div>
