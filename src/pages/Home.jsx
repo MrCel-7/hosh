@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Works from "./sections/Works";
 
 export default function Home() {
   const words = ["Frontend Developer", "Backend Developer", "Web Designer"];
@@ -95,42 +96,8 @@ export default function Home() {
         <div className="border border-t w-100"></div>
       </div>
 
-      {/* Our Projects */}
-      <div className="w-full flex flex-col p-20">
-        <div className="flex w-full justify-center py-10">
-          <h1 className="text-6xl font-extrabold text-blue-800">MY WORKS</h1>
-        </div>
-        <div className="w-full h-full flex flex-col bg-white rounded-2xl mt-20 gap-10 p-10">
-          <div className="flex gap-10">
-            <div className="w-ful rounded-xl">
-              <img src="/nopicture.png" />
-            </div>
-            <div className="w-ful rounded-xl">
-              <img src="/nopicture.png" />
-            </div>
-            <div className="w-ful rounded-xl">
-              <img src="/nopicture.png" />
-            </div>
-            <div className="w-ful rounded-xl">
-              <img src="/nopicture.png" />
-            </div>
-          </div>
-          <div className="flex gap-10">
-            <div className="w-ful rounded-xl">
-              <img src="/nopicture.png" />
-            </div>
-            <div className="w-ful rounded-xl">
-              <img src="/nopicture.png" />
-            </div>
-            <div className="w-ful rounded-xl">
-              <img src="/nopicture.png" />
-            </div>
-            <div className="w-ful rounded-xl">
-              <img src="/nopicture.png" />
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* My Works Section */}
+      <Works />
     </div>
   );
 }

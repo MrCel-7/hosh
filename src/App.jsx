@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Counter from "./pages/Counter";
+import Counter from "./pages/projects/counter/Counter";
 import Home from "./pages/Home";
+import Todo from "./pages/projects/todo/Todo";
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/project/counter" element={<Counter />} />
+        <Route path="/project/todo" element={<Todo />} />
       </Routes>
     </BrowserRouter>
   );
