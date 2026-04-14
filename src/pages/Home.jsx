@@ -14,10 +14,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full bg-gray-200 h-screen flex flex-col">
+    <div className="w-full cursor-default bg-gray-200 h-screen flex flex-col">
       {/* Head */}
       <div className="w-full flex justify-center h-fit gap-2 px-10 my-5">
-        <h1 className="text-xl garet font-bold">
+        <h1 className="text-xl garet font-bold hover:text-blue-800 cursor-pointer hover:scale-105 transition-all duration-400">
           <span className="text-gray-400">marcel</span>wang•
         </h1>
       </div>
@@ -27,7 +27,7 @@ export default function Home() {
         {/* Left */}
         <div className="flex h-full flex-col gap-3 justify-center">
           <div className="w-15 border"></div>
-          <div className="w-25 border border-gray-500"></div>
+          <div className="w-22 border border-gray-500"></div>
           <div className="w-15 border"></div>
         </div>
 
@@ -44,7 +44,7 @@ export default function Home() {
                 {words.map((word, i) => (
                   <li
                     key={i}
-                    className="h-[90px] flex items-center justify-center text-6xl font-bold"
+                    className="h-[90px] hover:text-blue-800 transition-all duration-400 flex items-center justify-center text-6xl font-bold"
                   >
                     {word}
                   </li>
@@ -65,16 +65,22 @@ export default function Home() {
         {/* Right */}
         <div className="flex h-full items-end flex-col gap-3 justify-center">
           <div className="w-15 border"></div>
-          <div className="w-25 border border-gray-500"></div>
+          <div className="w-22 border border-gray-500"></div>
           <div className="w-15 border"></div>
         </div>
       </div>
 
       {/* Foot */}
       <div className="w-full h-fit flex items-center justify-center gap-5 my-5 px-10">
-        <p>Dribbble</p>
-        <p>Github</p>
-        <p>Instagram</p>
+        <p className="hover:text-blue-800 transition-all duration-400">
+          Dribbble
+        </p>
+        <p className="hover:text-blue-800 transition-all duration-400">
+          Github
+        </p>
+        <p className="hover:text-blue-800 transition-all duration-400">
+          Instagram
+        </p>
       </div>
     </div>
   );
