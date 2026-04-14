@@ -26,25 +26,25 @@ export default function Home() {
       <div className="flex h-full w-full px-10">
         {/* Left */}
         <div className="flex h-full flex-col gap-3 justify-center">
-          <div className="w-15 border-2"></div>
-          <div className="w-25 border-2 border-gray-500"></div>
-          <div className="w-15 border-2"></div>
+          <div className="w-15 border"></div>
+          <div className="w-25 border border-gray-500"></div>
+          <div className="w-15 border"></div>
         </div>
 
         <div className="h-full w-full garet flex flex-col items-center justify-center">
           <div className="flex flex-col text-center">
             <h1 className="text-4xl text-gray-500">WE WORK AS</h1>
-            <div className="overflow-hidden h-[120px]">
+            <div className="overflow-hidden h-[90px]">
               <ul
                 className="transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 style={{
-                  transform: `translateY(-${index * 120}px)`,
+                  transform: `translateY(-${index * 90}px)`,
                 }}
               >
                 {words.map((word, i) => (
                   <li
                     key={i}
-                    className="h-[120px] flex items-center justify-center text-8xl font-bold"
+                    className="h-[90px] flex items-center justify-center text-6xl font-bold"
                   >
                     {word}
                   </li>
@@ -64,9 +64,9 @@ export default function Home() {
 
         {/* Right */}
         <div className="flex h-full items-end flex-col gap-3 justify-center">
-          <div className="w-15 border-2"></div>
-          <div className="w-25 border-2 border-gray-500"></div>
-          <div className="w-15 border-2"></div>
+          <div className="w-15 border"></div>
+          <div className="w-25 border border-gray-500"></div>
+          <div className="w-15 border"></div>
         </div>
       </div>
 
