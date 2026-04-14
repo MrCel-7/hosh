@@ -98,20 +98,36 @@ export default function Home() {
       {/* Our Projects */}
       <div className="w-full flex flex-col p-20">
         <div className="flex w-full justify-center py-10">
-          <h1 className="text-6xl font-extrabold">MY WORKS</h1>
+          <h1 className="text-6xl font-extrabold text-blue-800">MY WORKS</h1>
         </div>
         <div className="w-full h-full flex flex-col bg-white rounded-2xl mt-20 gap-10 p-10">
-          <div className="flex justify-around">
-            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
-            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
-            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
-            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
+          <div className="flex gap-10">
+            <div className="w-ful rounded-xl">
+              <img src="/nopicture.png" />
+            </div>
+            <div className="w-ful rounded-xl">
+              <img src="/nopicture.png" />
+            </div>
+            <div className="w-ful rounded-xl">
+              <img src="/nopicture.png" />
+            </div>
+            <div className="w-ful rounded-xl">
+              <img src="/nopicture.png" />
+            </div>
           </div>
-          <div className="flex justify-around">
-            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
-            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
-            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
-            <div className="w-[260px] h-[300px] bg-gray-200 rounded-xl"></div>
+          <div className="flex gap-10">
+            <div className="w-ful rounded-xl">
+              <img src="/nopicture.png" />
+            </div>
+            <div className="w-ful rounded-xl">
+              <img src="/nopicture.png" />
+            </div>
+            <div className="w-ful rounded-xl">
+              <img src="/nopicture.png" />
+            </div>
+            <div className="w-ful rounded-xl">
+              <img src="/nopicture.png" />
+            </div>
           </div>
         </div>
       </div>
