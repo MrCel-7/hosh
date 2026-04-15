@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: "LeagueSpartan";
   src: url("/fonts/LeagueSpartan.otf") format("opentype");

@@ -12,7 +12,7 @@ export default function Works() {
     {
       id: 2,
       title: "Todo App",
-      tech: "Add todo reminder.",
+      tech: "Add todo reminder with dark/light mode feature and saved to localstorage.",
       image: "/todo.png",
       path: "/project/todo",
     },
@@ -36,7 +36,7 @@ export default function Works() {
               <img src={project.image} className="w-full h-full object-cover" />
 
               <div
-                className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white
+                className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center text-white
                           transform -translate-y-full group-hover:translate-y-0
                           transition-transform duration-500 ease-in-out"
               >
@@ -44,7 +44,7 @@ export default function Works() {
                   <h1 className="text-2xl font-bold">{project.id}.</h1>
                   <h1 className="text-2xl font-bold">{project.title}</h1>
                 </div>
-                <p className="text-sm opacity-70">{project.tech}</p>
+                <p className="text-sm opacity-70 text-center">{project.tech}</p>
               </div>
             </Link>
           ))}

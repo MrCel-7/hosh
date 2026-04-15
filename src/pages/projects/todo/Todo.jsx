@@ -1,167 +1,161 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
 
-export default function Todo() {
+export default function todo() {
+  // Todo (Persist)
   const [todos, setTodos] = useState(() => {
-    try {
-      const saved = localStorage.getItem("todos");
-      return saved ? JSON.parse(saved) : [];
-    } catch {
-      return [];
-    }
+    const saved = localStorage.getItem("todos");
+    return saved ? JSON.parse(saved) : [];
   });
+
+  // Dark Mode (Persist)
+  const [dark, setDark] = useState(() => {
+    return localStorage.getItem("dark" === "true");
+  });
+
   const [input, setInput] = useState("");
   const [filter, setFilter] = useState("all");
   const [editId, setEditId] = useState(null);
 
-  // Save ke localstorage
+  // Sync todos
   useEffect(() => {
-    console.log("SAVE: ", todos);
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
-  const handleAdd = () => {
+  // Sync dark mode
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+    localStorage.setItem("dark", dark);
+  }, [dark]);
+
+  // Add || Update
+  const handleSubmit = () => {
     if (!input.trim()) return;
 
-    // Kalau lagi edit
     if (editId) {
       setTodos((prev) =>
-        prev.map((todo) =>
-          todo.id === editId ? { ...todo, text: input } : todo,
-        ),
+        prev.map((t) => (t.id === editId ? { ...t, text: input } : t)),
       );
       setEditId(null);
     } else {
-      const newTodo = {
-        id: Date.now(),
-        text: input,
-        completed: false,
-      };
-      setTodos((prev) => [...prev, newTodo]);
+      setTodos((prev) => [
+        ...prev,
+        {
+          id: Date.now(),
+          text: input,
+          completed: false,
+        },
+      ]);
     }
 
     setInput("");
   };
 
+  // Delete
   const handleDelete = (id) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+    setTodos((prev) => prev.filter((t) => t.id !== id));
   };
 
+  // Toggle
   const handleToggle = (id) => {
     setTodos((prev) =>
-      prev.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo,
-      ),
+      prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)),
     );
   };
 
+  // Edit
   const handleEdit = (todo) => {
     setInput(todo.text);
     setEditId(todo.id);
   };
 
-  // Filter logic
-  const filteredTodos = todos.filter((todo) => {
-    if (filter === "active") return !todo.completed;
-    if (filter === "completed") return todo.completed;
+  // Filter
+  const filteredTodos = todos.filter((t) => {
+    if (filter === "active") return !t.completed;
+    if (filter === "completed") return t.completed;
     return true;
   });
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center bg-gray-100 py-10">
-      <div className="w-[420px] bg-white shadow-xl rounded-xl p-6">
-        <h1 className="text-2xl font-bold mb-4 text-center">Todo List</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+      <div className="w-[400px] bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl">
+        {/* Header */}
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="text-xl font-bold text-gray-800 dark:text-white">
+            Todo App
+          </h1>
 
+          <button
+            onClick={() => setDark(!dark)}
+            className="px-3 py-1 rounded-lg ouline-0 bg-gray-200 dark:bg-gray-700"
+          >
+            {dark ? "☀️" : "🌙"}
+          </button>
+        </div>
+
+        {/* Input */}
         <div className="flex gap-2 mb-4">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Add todo..."
-            className="flex-1 px-3 py-2 border rounded-lg outline-none"
+            className="flex-1 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 shadow-inner text-black dark:text-white outline-none"
           />
           <button
-            onClick={handleAdd}
-            className="bg-blue-400 text-white px-4 rounded-lg"
+            onClick={handleSubmit}
+            className="bg-blue-500 text-white px-4 rounded-lg"
           >
             {editId ? "Update" : "Add"}
           </button>
         </div>
 
         {/* Filter */}
-        <div className="flex justify-between mb-4">
-          {["all", "active", "completed"].map((f) => (
-            <button
-              key={f}
-              onClick={() => setFilter(f)}
-              className={`px-3 py-1 rounded-lg text-sm ${
-                filter === f ? "bg-blue-400 text-white" : "bg-gray-200"
-              }`}
+        <select
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          className="focus:outline-0 w-full mb-4 px-3 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-black dark:text-white"
+        >
+          <option value="all">All</option>
+          <option value="active">Active</option>
+          <option value="completed">Completed</option>
+        </select>
+
+        {/* List */}
+        <div className="flex flex-col gap-2">
+          {filteredTodos.length === 0 && (
+            <p className="text-center text-gray-400">No todos</p>
+          )}
+
+          {filteredTodos.map((todo) => (
+            <div
+              key={todo.id}
+              className="flex justify-between items-center bg-gray-100 dark:bg-gray-700 px-3 py-2 rounded-lg"
             >
-              {f}
-            </button>
+              <div
+                onClick={() => handleToggle(todo.id)}
+                className={`flex-1 cursor-pointer ${
+                  todo.completed
+                    ? "line-through text-gray-400"
+                    : "text-gray-800 dark:text-white"
+                }`}
+              >
+                {todo.text}
+              </div>
+
+              <div className="flex gap-2">
+                <button onClick={() => handleEdit(todo)}>✏️</button>
+                <button onClick={() => handleDelete(todo.id)}>✕</button>
+              </div>
+            </div>
           ))}
         </div>
-
-        {/* Lists */}
-        <AnimatePresence>
-          <div className="flex flex-col gap-4">
-            {filteredTodos.length === 0 && (
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="text-center text-gray-400"
-              >
-                No todos yet
-              </motion.p>
-            )}
-
-            {filteredTodos.map((todo) => (
-              <motion.div
-                key={todo.id}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, x: 50 }}
-                transition={{ duration: 0.2 }}
-                className="flex items-center justify-between bg-gray-100 px-3 py-2 rounded-lg"
-              >
-                <div
-                  onClick={() => handleToggle(todo.id)}
-                  className={`flex-1 cursor-pointer transition-all ${
-                    todo.completed ? "line-through text-gray-400" : ""
-                  }`}
-                >
-                  {todo.text}
-                </div>
-
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => handleEdit(todo)}
-                    className="text-yellow-400 hover:scale-110 transition"
-                  >
-                    ✏️
-                  </button>
-
-                  <button
-                    onClick={() => handleDelete(todo.id)}
-                    className="text-red-400 hover:scale-110 transition"
-                  >
-                    ✕
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </AnimatePresence>
       </div>
 
-      {/* Back */}
-      <div className="absolute top-0 left-0 p-5">
+      {/* Back to home */}
+      <div className="absolute p-10 top-0 left-0">
         <Link
           to="/home"
-          className="bg-red-400 text-white px-6 py-2 rounded-xl shadow-xl"
+          className="bg-red-400 rounded-xl shadow-inner px-10 py-4 text-white shadow-white"
         >
           Back
         </Link>
