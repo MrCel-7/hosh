@@ -16,6 +16,13 @@ export default function Works() {
       image: "/todo.png",
       path: "/project/todo",
     },
+    {
+      id: 3,
+      title: "Bio Card App",
+      tech: "Showing teams bio.",
+      image: "/card.png",
+      path: "/project/card",
+    },
   ];
 
   const navigate = useNavigate();
