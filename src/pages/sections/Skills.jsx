@@ -27,13 +27,13 @@ const Skills = () => {
     {
       id: 5,
       title: "TailwindCSS",
-      percentage: 75,
+      percentage: 90,
       image: "/tailwind.png",
     },
     {
       id: 6,
       title: "NextJS",
-      percentage: 75,
+      percentage: 45,
       image: "/nextjs.png",
     },
   ];

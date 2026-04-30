@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Works from "./sections/Works";
 import Skills from "./sections/Skills";
+import Contact from "./sections/Contact";
 
 export default function Home() {
   const words = ["Frontend Developer", "Backend Developer", "Web Designer"];
@@ -111,6 +112,17 @@ export default function Home() {
 
       {/* My Skills Section */}
       <Skills />
+
+      <div className="w-full flex justify-center gap-10 items-center">
+        <div className="border border-t w-100"></div>
+        <h1 className="font-bold hover:text-blue-800 transition-all duration-400">
+          <span className="text-gray-400">contact</span>
+          me•
+        </h1>
+        <div className="border border-t w-100"></div>
+      </div>
+
+      <Contact />
     </div>
   );
 }
